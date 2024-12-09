@@ -1,0 +1,28 @@
+{
+  "languages": [
+    "javascript",
+    "python",
+    "java",
+    "php",
+    "c#",
+    "go",
+    "rust"
+  ],
+  "frameworks": [
+    "react",
+    "next.js",
+    "angular",
+    "node.js",
+    "jQuery",
+    ".Net",
+    "laravel",
+    "springboot",
+    "svelte",
+    "astro"
+  ],
+  "databases": [
+    "sql",
+    "mongoDB",
+    "postgres"
+  ]
+}

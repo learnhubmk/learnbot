@@ -1,0 +1,19 @@
+{
+  "discord": [
+    "admin",
+    "member",
+    "guest"
+  ],
+  "experience": [
+    "mentor",
+    "member"
+  ],
+  "position": [
+    "frontend",
+    "backend",
+    "UI/UX",
+    "devops",
+    "project manager",
+    "quality assurance"
+  ]
+}
