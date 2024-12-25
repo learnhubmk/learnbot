@@ -17,7 +17,7 @@ const join = async (interaction) => {
         .then(async () => {
             await interaction.reply({content: messages.projects.join, ephemeral: true});
             // todo replace with learnhub guild id
-            await fetchAdmins(interaction, metadata.server4edavor4e)
+            await fetchAdmins(interaction, metadata.learnhub)
                 .then(admins => {
                     let adminName = projects.find(project => project.name === projectName).owner;
                     let adminFiltered = admins.filter(admin => {
@@ -45,7 +45,7 @@ const create = async (interaction) => {
         .then(async () => {
             // todo replace with learnhub guild id
             await interaction.reply({content: messages.projects.join, ephemeral: true});
-            await fetchAdmins(interaction, metadata.server4edavor4e)
+            await fetchAdmins(interaction, metadata.learnhub)
                 .then(admins => {
                     admins.forEach(admin => admin.send(
                         messages.projects.create
@@ -62,7 +62,11 @@ const list = async (interaction) => {
     let projectInfo = "";
     projects.forEach(project => projectInfo += "- **" + project.name + "**: " + project.info.description + "\n");
     await interaction.reply({content: messages.commands.success, ephemeral: true})
-    await interaction.user.send(messages.projects.active + "\n" + projectInfo + "\n" + messages.projects.inactive.replace("%channel%", channels.projects));
+    await interaction.user.send(messages.projects.active
+        + "\n" + projectInfo
+        + "\n" + messages.projects.inactive.replace("%channel%", channels.projects)
+        + "\n" + messages.projects.time
+    );
 }
 
 const info = async (interaction) => {
@@ -70,7 +74,7 @@ const info = async (interaction) => {
     let project = projects.find(project => project.name === projectName)
     // todo replace with learnhub guild id
     await interaction.reply({content: messages.commands.success, ephemeral: true})
-    await fetchMembersWithRole(interaction, metadata.server4edavor4e, project.info.members)
+    await fetchMembersWithRole(interaction, metadata.learnhub, project.info.members)
         .then(async (members) => {
             let projectMembers = members.map(member => tagMember(member)).join(", ");
             await interaction.user.send(

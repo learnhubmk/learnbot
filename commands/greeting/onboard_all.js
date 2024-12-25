@@ -11,7 +11,7 @@ module.exports = {
     async execute(interaction) {
         if (isAdmin(interaction.member)) {
             // todo replace with learnhub guild id
-            fetchMembers(interaction, metadata.server4edavor4e)
+            fetchMembers(interaction, metadata.learnhub)
                 .then(members =>
                     members.forEach(member => {
                             member.send(messages.welcome.join("\n").replace("%username%", interaction.user.id));
