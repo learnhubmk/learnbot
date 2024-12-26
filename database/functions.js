@@ -13,11 +13,14 @@ const addExperience = async (id, name, skill, years) => {
     })
 }
 
-const addUserToProject = async (id, name, projectName, projectExperience, projectPosition) => {
+const addUserToProject = async (id, name, projectName, projectExperience, projectPosition, projectDescribeYourself) => {
     await addUser(id, name)
         .then(async () => {
-            await sql`INSERT INTO projects(discordId, name, experience, position)
-                      VALUES (${id}, ${projectName}, ${projectExperience}, ${projectPosition})`
+            await sql`INSERT INTO projects(discordId, name, experience, position, describeYourself)
+                      VALUES (${id}, ${projectName},
+                              ${projectExperience},
+                              ${projectPosition},
+                              ${projectDescribeYourself})`
         })
 }
 

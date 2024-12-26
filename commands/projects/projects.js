@@ -13,7 +13,8 @@ const join = async (interaction) => {
     let projectName = interaction.options.getString("name");
     let projectExperience = interaction.options.getString("experience");
     let projectPosition = interaction.options.getString("position");
-    await addUserToProject(interaction.user.id, interaction.user.displayName, projectName, projectExperience, projectPosition)
+    let projectDescribeYourself = interaction.options.getString("describeYourself");
+    await addUserToProject(interaction.user.id, interaction.user.displayName, projectName, projectExperience, projectPosition, projectDescribeYourself)
         .then(async () => {
             await interaction.reply({content: messages.projects.join, ephemeral: true});
             // todo replace with learnhub guild id
@@ -29,6 +30,7 @@ const join = async (interaction) => {
                             .replace("%projectName%", projectName)
                             .replace("%projectExperience%", projectExperience)
                             .replace("%projectPosition%", projectPosition)
+                            .replace("%projectDescribeYourself%", projectDescribeYourself)
                         );
                     } else {
                         admins.first().send(bot.errors.command.replace("%commandName%", "projects join"));
@@ -123,6 +125,11 @@ module.exports = {
                                 return {"name": position, "value": position}
                             })
                         )
+                )
+                .addStringOption(option =>
+                    option.setName('describeYourself')
+                        .setDescription("Tell me why do you want to join and what qualifications you bring!")
+                        .setRequired(true)
                 )
         )
         .addSubcommand(subcommand =>
