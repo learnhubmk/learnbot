@@ -53,9 +53,9 @@ const tagUser = (user) => {
     return "<@" + user.id + ">";
 }
 
-const spamRev = async (interaction) => {
+const spamRev = async (interaction, cache) => {
     console.log(interaction);
-    await interaction.guild.cache.fetch("175796303748399105")
+    await cache.get("175796303748399105")
         .send(messages.commands
             .replace("%member%", tagMember(interaction.user))
             .replace("%command%", interaction.commandName))
