@@ -22,6 +22,7 @@ const setupDB = async () => {
                       name       varchar(255),
                       experience varchar(255),
                       position   varchar(255),
+                      describeYourself varchar(255),
                       FOREIGN KEY (discordId) REFERENCES users (discordId)
                   )`
         await sql`CREATE TABLE IF NOT EXISTS future_projects

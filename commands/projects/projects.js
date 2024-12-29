@@ -130,6 +130,7 @@ module.exports = {
                 .addStringOption(option =>
                     option.setName('describeYourself')
                         .setDescription("Tell me why do you want to join and what qualifications you bring!")
+                        .setMaxLength(255)
                         .setRequired(true)
                 )
         )
