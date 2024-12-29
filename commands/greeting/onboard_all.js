@@ -2,7 +2,7 @@ const {SlashCommandBuilder} = require('discord.js');
 const messages = require('../../data/messages.json');
 const channels = require('../../data/channels.json');
 const metadata = require('../../data/metadata.json');
-const {fetchMembers, isAdmin} = require("../../discord/reusable");
+const {fetchMembers, isAdmin, fetchAdmins} = require("../../discord/reusable");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,7 +12,7 @@ module.exports = {
         try {
             if (isAdmin(interaction.member)) {
                 // todo replace with learnhub guild id
-                fetchMembers(interaction, metadata.learnhub)
+                fetchAdmins(interaction, metadata.learnhub)
                     .then(members =>
                         members.forEach(member => {
                                 try {
