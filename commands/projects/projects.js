@@ -21,10 +21,9 @@ const join = async (interaction) => {
             await fetchAdmins(interaction, metadata.testingServer)
                 .then(admins => {
                     let adminId = projects.find(project => project.name === projectName).owner.id;
-                    // let adminFiltered = admins.filter(admin => {
-                    //     return nameCheck(admin, adminName);
-                    // });
+                    console.log(adminId);
                     let adminFiltered = admins.find(admin => admin.id === adminId);
+                    console.log(adminFiltered);
                     if (adminFiltered) {
                         adminFiltered.first().send(messages.projects.join_admin
                             .replace("%userTag%", tagUser(interaction.user))

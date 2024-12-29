@@ -58,9 +58,10 @@ const spamRev = async (interaction, cache) => {
         .replace("%member%", tagUser(interaction.user))
         .replace("%command%", interaction.commandName)
     try {
-        msg = msg.replace(interaction.options.getSubcommand())
+        msg = msg.replace("%subcommand%", interaction.options.getSubcommand())
         // "join_admin": "%userTag% сака да се придружи на **%projectName%**\n- Искуство: **%projectExperience%**\n- Позиција: **%projectPosition%**.\n- Опис: **%projectDescribeYourself%**.\nИсконтактирај го најбрзо можно!",
     } catch (error) {
+        msg.replace("%subcommand%", "");
         console.log("no subcommand, skipping");
     }
     await cache.get("175796303748399105").send(msg);
