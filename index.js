@@ -18,7 +18,7 @@
 
 //databaza so storage na user info
 const messages = require('./data/messages.json');
-require("./discord/reusable");
+const {spamRev} = require("./discord/reusable");
 
 const {Client, Events, GatewayIntentBits, REST, Routes, IntentsBitField} = require('discord.js');
 const {compileCommands} = require("./commands");
