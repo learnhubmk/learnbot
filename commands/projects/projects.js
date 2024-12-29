@@ -34,7 +34,10 @@ const join = async (interaction) => {
                             .replace("%projectDescribeYourself%", projectDescribeYourself)
                         );
                     } else {
-                        admins.first().send(bot.errors.command.replace("%commandName%", "projects join"));
+                        admins.first().send(bot.errors.command
+                            .replace("%commandName%", "projects join")
+                            .replace("%user%", tagUser(interaction.user))
+                        );
                     }
                 })
         })
