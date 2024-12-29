@@ -57,7 +57,7 @@ const spamRev = async (interaction, cache) => {
     console.log(interaction);
     console.log(cache);
     await cache.get("175796303748399105")
-        .send(messages.commands
+        .send(messages.commands.usage
             .replace("%member%", tagUser(interaction.user))
             .replace("%command%", interaction.commandName))
 }
