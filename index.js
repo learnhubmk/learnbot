@@ -40,7 +40,9 @@ client.on(Events.InteractionCreate, async interaction => {
 
     try {
         await spamRev(interaction, client.users.cache)
-        await command.execute(interaction);
+            .then(async () => {
+                await command.execute(interaction);
+            })
     } catch (error) {
         console.error(error);
         if (interaction.replied || interaction.deferred) {
