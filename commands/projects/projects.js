@@ -13,7 +13,7 @@ const join = async (interaction) => {
     let projectName = interaction.options.getString("name");
     let projectExperience = interaction.options.getString("experience");
     let projectPosition = interaction.options.getString("position");
-    let projectDescribeYourself = interaction.options.getString("describeYourself");
+    let projectDescribeYourself = interaction.options.getString("describe_yourself");
     await addUserToProject(interaction.user.id, interaction.user.displayName, projectName, projectExperience, projectPosition, projectDescribeYourself)
         .then(async () => {
             await interaction.reply({content: messages.projects.join, ephemeral: true});
@@ -128,7 +128,7 @@ module.exports = {
                         )
                 )
                 .addStringOption(option =>
-                    option.setName('describeYourself')
+                    option.setName('describe_yourself')
                         .setDescription("Tell me why do you want to join and what qualifications you bring!")
                         .setMaxLength(255)
                         .setRequired(true)
