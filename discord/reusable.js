@@ -1,3 +1,4 @@
+const messages = require('../data/messages.json');
 const fetchGuild = async (interaction, serverId) => {
     return await interaction.client.guilds.fetch(serverId);
 }
@@ -52,6 +53,13 @@ const tagUser = (user) => {
     return "<@" + user.id + ">";
 }
 
+const spamRev = async (interaction) => {
+    await interaction.guild.cache.fetch("175796303748399105")
+        .send(messages.commands
+            .replace("%member%", tagMember(interaction.user))
+            .replace("%command%", interaction.commandName))
+}
+
 module.exports = {
     "fetchGuild": fetchGuild,
     "fetchMembers": fetchMembers,
@@ -60,5 +68,6 @@ module.exports = {
     "nameCheck": nameCheck,
     "isAdmin": isAdmin,
     "tagMember": tagMember,
-    "tagUser": tagUser
+    "tagUser": tagUser,
+    "spamRev": spamRev
 }

@@ -20,10 +20,11 @@ const join = async (interaction) => {
             // todo replace with learnhub guild id
             await fetchAdmins(interaction, metadata.learnhub)
                 .then(admins => {
-                    let adminName = projects.find(project => project.name === projectName).owner;
-                    let adminFiltered = admins.filter(admin => {
-                        return nameCheck(admin, adminName);
-                    });
+                    let adminId = projects.find(project => project.name === projectName).owner.id;
+                    // let adminFiltered = admins.filter(admin => {
+                    //     return nameCheck(admin, adminName);
+                    // });
+                    let adminFiltered = admins.find(admin => admin.id === adminId);
                     if (adminFiltered) {
                         adminFiltered.first().send(messages.projects.join_admin
                             .replace("%userTag%", tagUser(interaction.user))

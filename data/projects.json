@@ -2,60 +2,111 @@
   {
     "name": "learnhub",
     "status": "Во изработка",
-    "owner": "Emilija",
+    "owner": {
+      "name": "Emilija",
+      "id": "1200456712344309813"
+    },
     "info": {
       "description": "Платформата на LearnHub за менторирање и учење преку практична работа.",
-      "technologies": ["nextjs", "scss"],
-      "teams": ["frontend"],
-      "members": ["lh-frontend"],
+      "technologies": [
+        "nextjs",
+        "scss"
+      ],
+      "teams": [
+        "frontend"
+      ],
+      "members": [
+        "lh-frontend"
+      ],
       "info": "Целта на проектот е да се зголеми целовкупното знаење на заедницата."
     }
   },
   {
     "name": "learnhub-api",
     "status": "Во изработка",
-    "owner": "Davor",
+    "owner": {
+      "name": "Davor",
+      "id": "346042410926866435"
+    },
     "info": {
       "description": "API-то позади сите операции на LearnHub.",
-      "technologies": ["php", "laravel"],
-      "teams": ["backend"],
-      "members": ["lh-backend"],
+      "technologies": [
+        "php",
+        "laravel"
+      ],
+      "teams": [
+        "backend"
+      ],
+      "members": [
+        "lh-backend"
+      ],
       "info": "Целта на проектот е да се зголеми целовкупното знаење на заедницата."
     }
   },
   {
     "name": "skopje-paws",
     "status": "Во изработка",
-    "owner": "Viktor",
+    "owner": {
+      "name": "Viktor",
+      "id": "175796303748399105"
+    },
     "info": {
       "description": "Портал за бизнис на шетање миленици.",
-      "technologies": ["nextjs", "tailwind"],
-      "teams": ["frontend"],
-      "members": ["pawsome"],
+      "technologies": [
+        "nextjs",
+        "tailwind"
+      ],
+      "teams": [
+        "frontend"
+      ],
+      "members": [
+        "pawsome"
+      ],
       "info": "Целта на проектот е да се изработи преглед на бизнисот."
     }
   },
   {
     "name": "link-me",
     "status": "Во изработка",
-    "owner": "Dragan",
+    "owner": {
+      "name": "Dragan",
+      "id": "190246450527993857"
+    },
     "info": {
       "description": "Social Media агрегатор и платформа за поврзување на различни мрежи и групи.",
-      "technologies": [".Net", "svelte"],
-      "teams": ["frontend", "backend"],
-      "members": ["link-me"],
+      "technologies": [
+        ".Net",
+        "svelte"
+      ],
+      "teams": [
+        "frontend",
+        "backend"
+      ],
+      "members": [
+        "link-me"
+      ],
       "info": "Целта на проектот е да се изработи агрегатор."
     }
   },
   {
     "name": "learnbot",
     "status": "Maintenance",
-    "owner": "Viktor",
+    "owner": {
+      "name": "Viktor",
+      "id": "175796303748399105"
+    },
     "info": {
       "description": "Discord bot за LearnHub заедницата.",
-      "technologies": ["javascript", "discord.js"],
-      "teams": ["backend"],
-      "members": ["learnbot"],
+      "technologies": [
+        "javascript",
+        "discord.js"
+      ],
+      "teams": [
+        "backend"
+      ],
+      "members": [
+        "learnbot"
+      ],
       "info": "Целта на проектот е да се Discord bot."
     }
   }

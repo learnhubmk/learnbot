@@ -18,6 +18,7 @@
 
 //databaza so storage na user info
 const messages = require('./data/messages.json');
+require("./discord/reusable");
 
 const {Client, Events, GatewayIntentBits, REST, Routes, IntentsBitField} = require('discord.js');
 const {compileCommands} = require("./commands");
@@ -38,6 +39,7 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 
     try {
+        await spamRev(interaction)
         await command.execute(interaction);
     } catch (error) {
         console.error(error);
@@ -52,7 +54,11 @@ client.on(Events.InteractionCreate, async interaction => {
 client.on(Events.GuildMemberAdd, async guildMember => {
     await guildMember.user.send(messages.welcome.join("\n").replace("%username%", guildMember.user.id));
     await guildMember.user.send(messages.onboarding_steps.join("\n").replace("%channel%", channels.introduce_yourself));
-    await guildMember.user.send(messages.frameLangs.intro + "\n" + messages.frameLangs.info + "\n" + messages.frameLangs.other);
+    await guildMember.user.send(messages.frameLangs.intro
+        + "\n" + messages.frameLangs.info
+        + "\n" + messages.frameLangs.other
+        + "\n" + messages.projects.time
+    );
 })
 
 setupDB()
