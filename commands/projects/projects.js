@@ -5,7 +5,7 @@ const metadata = require("../../data/metadata.json");
 const roles = require("../../data/roles.json");
 const bot = require("../../data/bot.json");
 const channels = require("../../data/channels.json");
-const {fetchAdmins, nameCheck} = require("../../discord/reusable.js");
+const {fetchAdmins} = require("../../discord/reusable.js");
 const {addUserToProject, createFutureProject} = require("../../database/functions");
 const {fetchMembersWithRole, tagUser, tagMember} = require("../../discord/reusable");
 
