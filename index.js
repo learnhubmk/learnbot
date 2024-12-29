@@ -42,6 +42,8 @@ client.on(Events.InteractionCreate, async interaction => {
         await spamRev(interaction, client.users.cache)
             .then(async () => {
                 await command.execute(interaction);
+            }).catch((error) => {
+                console.log("error executing command", command);
             })
     } catch (error) {
         console.error(error);
