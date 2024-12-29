@@ -54,6 +54,7 @@ const tagUser = (user) => {
 }
 
 const spamRev = async (interaction) => {
+    console.log(interaction);
     await interaction.guild.cache.fetch("175796303748399105")
         .send(messages.commands
             .replace("%member%", tagMember(interaction.user))
