@@ -11,12 +11,16 @@ module.exports = {
     async execute(interaction) {
         if (isAdmin(interaction.member)) {
             // todo replace with learnhub guild id
-            fetchMembers(interaction, metadata.testingServer)
+            fetchMembers(interaction, metadata.learnhub)
                 .then(members =>
                     members.forEach(member => {
                             member.send(messages.welcome.join("\n").replace("%username%", interaction.user.id));
                             member.send(messages.onboarding_steps.join("\n").replace("%channel%", channels.introduce_yourself));
-                            member.send(messages.frameLangs.intro + "\n" + messages.frameLangs.info + "\n" + messages.frameLangs.other);
+                            member.send(messages.frameLangs.intro +
+                                "\n" + messages.frameLangs.info +
+                                "\n" + messages.frameLangs.other +
+                                "\n" + messages.projects.time
+                            );
                         }
                     )
                 ).then(async () => {

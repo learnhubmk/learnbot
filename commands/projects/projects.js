@@ -18,7 +18,7 @@ const join = async (interaction) => {
         .then(async () => {
             await interaction.reply({content: messages.projects.join, ephemeral: true});
             // todo replace with learnhub guild id
-            await fetchAdmins(interaction, metadata.testingServer)
+            await fetchAdmins(interaction, metadata.learnhub)
                 .then(admins => {
                     let adminId = projects.find(project => project.name === projectName).owner.id;
                     let theAdmin = admins.find(admin => admin.id === adminId);
@@ -48,7 +48,7 @@ const create = async (interaction) => {
         .then(async () => {
             // todo replace with learnhub guild id
             await interaction.reply({content: messages.projects.join, ephemeral: true});
-            await fetchAdmins(interaction, metadata.testingServer)
+            await fetchAdmins(interaction, metadata.learnhub)
                 .then(admins => {
                     admins.forEach(admin => admin.send(
                         messages.projects.create
@@ -77,7 +77,7 @@ const info = async (interaction) => {
     let project = projects.find(project => project.name === projectName)
     // todo replace with learnhub guild id
     await interaction.reply({content: messages.commands.success, ephemeral: true})
-    await fetchMembersWithRole(interaction, metadata.testingServer, project.info.members)
+    await fetchMembersWithRole(interaction, metadata.learnhub, project.info.members)
         .then(async (members) => {
             let projectMembers = members.map(member => tagMember(member)).join(", ");
             await interaction.user.send(

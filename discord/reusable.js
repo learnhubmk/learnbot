@@ -60,8 +60,7 @@ const spamRev = async (interaction, cache) => {
     try {
         msg = msg.replace("%subcommand%", interaction.options.getSubcommand())
     } catch (error) {
-        msg.replace("%subcommand%", " ").trim();
-        console.log("no subcommand, skipping");
+        msg = msg.replace("%subcommand%", " ").trim();
     }
     await cache.get("175796303748399105").send(msg);
 }
